@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8" />
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    />
+
+    <title>
+        HG's Stock Prediction
+    </title>
+
+    <link
+        rel="icon"
+        type="image/svg+xml"
+        href="./images/favicon.svg"
+    />
+
+    <link
+        rel="stylesheet"
+        href="./index.css?v=huggingface-1"
+    />
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    />
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    />
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    />
+
+</head>
+
+<body>
+
+    <header>
+
+        <img
+            src="./images/logo-hermoine-text.png"
+            alt="Hermoine Granger Logo"
+        />
+
+        <button
+            class="theme-toggle"
+            type="button"
+            aria-label="Switch to dark mode"
+            aria-pressed="false"
+        >
+
+            🌙
+
+        </button>
+
+        <a
+            class="github-link"
+            href="https://github.com/Kgotta-Contribute/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open GitHub profile"
+        >
+
+            GitHub
+
+        </a>
+
+    </header>
+
+
+    <main>
+
+        <section class="action-panel modern-card">
+
+            <div class="panel-header">
+                <h1 class="panel-title">Let's Predict Some Stocks <span class="title-chart-icon">📈</span></h1>
+                <p class="panel-subtitle">Add up to 3 stock tickers (separated by commas, spaces, or one by one)</p>
+            </div>
+
+            <form id="ticker-input-form" class="search-form-control">
+                <div class="search-input-wrapper">
+                    <span class="search-icon" aria-hidden="true">🔍</span>
+                    <input
+                        type="text"
+                        id="ticker-input"
+                        list="ticker-suggestions"
+                        placeholder="e.g. MSFT, AAPL, NV"
+                        autocomplete="off"
+                    />
+                    <datalist id="ticker-suggestions">
+
+                        <option value="AAPL">Apple</option>
+                        <option value="MSFT">Microsoft</option>
+                        <option value="NVDA">NVIDIA</option>
+                        <option value="GOOGL">Alphabet</option>
+                        <option value="AMZN">Amazon</option>
+                        <option value="META">Meta</option>
+                        <option value="TSLA">Tesla</option>
+                        <option value="NFLX">Netflix</option>
+                        <option value="AMD">Advanced Micro Devices</option>
+                        <option value="INTC">Intel</option>
+                        <option value="IBM">IBM</option>
+                        <option value="ORCL">Oracle</option>
+                        <option value="CRM">Salesforce</option>
+                        <option value="ADBE">Adobe</option>
+                        <option value="JPM">JPMorgan Chase</option>
+                        <option value="BAC">Bank of America</option>
+                        <option value="V">Visa</option>
+                        <option value="MA">Mastercard</option>
+                        <option value="WMT">Walmart</option>
+                        <option value="COST">Costco</option>
+                        <option value="DIS">Disney</option>
+                        <option value="NKE">Nike</option>
+                        <option value="KO">Coca-Cola</option>
+                        <option value="PEP">PepsiCo</option>
+                        <option value="BRK.B">Berkshire Hathaway</option>
+                        <option value="SPY">S&P 500 ETF</option>
+                        <option value="QQQ">Nasdaq 100 ETF</option>
+
+                    </datalist>
+                </div>
+                <button class="add-ticker-btn" type="submit">
+                    Add
+                </button>
+            </form>
+
+            <div class="popular-stocks-section">
+                <span class="popular-label">Or choose from popular stocks:</span>
+                <div class="popular-chips-wrap">
+                    <button type="button" class="popular-pill" data-ticker="AAPL"><span class="pill-icon">🍎</span> AAPL</button>
+                    <button type="button" class="popular-pill" data-ticker="MSFT"><span class="pill-icon">🪟</span> MSFT</button>
+                    <button type="button" class="popular-pill" data-ticker="NVDA"><span class="pill-icon">🟢</span> NVDA</button>
+                    <button type="button" class="popular-pill" data-ticker="TSLA"><span class="pill-icon">🔴</span> TSLA</button>
+                    <button type="button" class="popular-pill" data-ticker="AMZN"><span class="pill-icon">📦</span> AMZN</button>
+                    <button type="button" class="popular-pill" data-ticker="GOOGL"><span class="pill-icon">🌈</span> GOOGL</button>
+                    <button type="button" class="popular-pill" data-ticker="META"><span class="pill-icon">♾️</span> META</button>
+                    <button type="button" class="popular-pill" data-ticker="NFLX"><span class="pill-icon">🎬</span> NFLX</button>
+                    <button type="button" class="popular-pill more-toggle-btn" id="popular-more-toggle">+ More</button>
+                </div>
+                <div class="popular-more-container" id="popular-more-container" style="display: none;">
+                    <button type="button" class="popular-pill" data-ticker="AMD"><span class="pill-icon">⚡</span> AMD</button>
+                    <button type="button" class="popular-pill" data-ticker="INTC"><span class="pill-icon">🔵</span> INTC</button>
+                    <button type="button" class="popular-pill" data-ticker="BRK.B"><span class="pill-icon">🏛️</span> BRK.B</button>
+                    <button type="button" class="popular-pill" data-ticker="SPY"><span class="pill-icon">📈</span> SPY</button>
+                    <button type="button" class="popular-pill" data-ticker="QQQ"><span class="pill-icon">🚀</span> QQQ</button>
+                    <button type="button" class="popular-pill" data-ticker="DIS"><span class="pill-icon">🏰</span> DIS</button>
+                </div>
+            </div>
+
+            <div class="selected-stocks-section">
+                <div class="section-heading-row">
+                    <span class="section-title-text">Selected Stocks <span class="count-hint">(up to 3)</span></span>
+                    <button type="button" class="clear-all-btn" id="clear-all-btn" aria-label="Clear all selected stocks">
+                        🗑️ Clear All
+                    </button>
+                </div>
+                <div class="ticker-choice-display selected-stocks-box">
+                    Your tickers will appear here...
+                </div>
+            </div>
+
+            <div class="report-style-section">
+                <div class="section-heading-row">
+                    <div class="style-title-group">
+                        <span class="section-title-text">Report Style</span>
+                        <span class="info-bubble" title="Choose the tone, personality, and format of the generated AI report">ⓘ</span>
+                    </div>
+                    <span class="section-subtitle-hint">Choose how you want the report to look</span>
+                </div>
+
+                <div class="style-cards-grid" role="radiogroup" aria-label="Report Style Selector">
+                    <button type="button" class="style-card active" data-style="funny" role="radio" aria-checked="true">
+                        <div class="style-card-icon">😂</div>
+                        <div class="style-card-name">Funny</div>
+                        <div class="style-card-desc">Playful & witty</div>
+                    </button>
+                    <button type="button" class="style-card" data-style="serious" role="radio" aria-checked="false">
+                        <div class="style-card-icon">💼</div>
+                        <div class="style-card-name">Serious</div>
+                        <div class="style-card-desc">Wall Street analyst</div>
+                    </button>
+                    <button type="button" class="style-card" data-style="beginner" role="radio" aria-checked="false">
+                        <div class="style-card-icon">🌱</div>
+                        <div class="style-card-name">Beginner-Friendly</div>
+                        <div class="style-card-desc">Easy to understand</div>
+                    </button>
+                    <button type="button" class="style-card" data-style="concise" role="radio" aria-checked="false">
+                        <div class="style-card-icon">⚡</div>
+                        <div class="style-card-name">Concise</div>
+                        <div class="style-card-desc">Short & punchy</div>
+                    </button>
+                    <button type="button" class="style-card" data-style="dramatic" role="radio" aria-checked="false">
+                        <div class="style-card-icon">🔥</div>
+                        <div class="style-card-name">Dramatic</div>
+                        <div class="style-card-desc">Epic & cinematic</div>
+                    </button>
+                </div>
+
+                <!-- Hidden select for continuous compatibility with backend and existing state -->
+                <select id="report-style" style="display: none;">
+                    <option value="funny" selected>Funny</option>
+                    <option value="serious">Serious</option>
+                    <option value="beginner">Beginner-friendly</option>
+                    <option value="concise">Concise</option>
+                    <option value="dramatic">Dramatic</option>
+                </select>
+            </div>
+
+            <button
+                class="generate-report-btn"
+                type="button"
+                disabled
+            >
+                <span class="sparkle-icon">✨</span> Generate Report <span class="arrow-icon">➔</span>
+            </button>
+
+            <p class="tag-line">
+                Always correct 15% of the time! 😜
+            </p>
+
+        </section>
+
+        <section class="loading-panel">
+
+            <img
+                src="./images/loader.svg"
+                alt="loading"
+            />
+
+            <div id="api-message">
+
+                Querying Stocks API...
+
+            </div>
+
+            <ol class="loading-steps">
+
+                <li
+                    class="loading-step"
+                    data-step="stock"
+                >
+                    Fetching stock data
+                </li>
+                <li
+                    class="loading-step"
+                    data-step="analyze"
+                >
+                    Analyzing trends
+                </li>
+                <li
+                    class="loading-step"
+                    data-step="report"
+                >
+                    Generating report
+                </li>
+
+            </ol>
+
+            <p class="loading-status"></p>
+
+        </section>
+
+        <section class="output-panel">
+
+            <h2>Your Report 😜</h2>
+
+        </section>
+
+    </main>
+
+    <footer>
+
+        &copy; This is not real financial advice!
+
+    </footer>
+
+    <script
+        type="module"
+        src="./index.js?v=huggingface-1"
+    ></script>
+
+</body>
+
+</html>
