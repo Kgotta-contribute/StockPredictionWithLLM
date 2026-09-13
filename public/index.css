@@ -93,11 +93,9 @@ header {
 
     align-items: center;
 
-    gap: 1em;
-
     position: relative;
 
-    padding: 1em;
+    padding: 0.85em 1em;
 
     background-color: var(--header-bg);
 
@@ -107,11 +105,197 @@ header {
 
     margin: 0;
 
+    overflow: hidden;
+
 }
 
-header img {
+.header-inner {
 
-    width: 340px;
+    position: relative;
+
+    display: inline-flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    width: 440px;
+
+    max-width: 96vw;
+
+}
+
+.header-logo {
+
+    width: 100%;
+
+    max-width: 440px;
+
+    height: auto;
+
+    display: block;
+
+    pointer-events: none;
+
+}
+
+.header-icon-btn {
+
+    position: absolute;
+
+    top: 14%;
+
+    width: 40px;
+
+    height: 40px;
+
+    border-radius: 12px;
+
+    background: rgba(255, 255, 255, 0.12);
+
+    border: 1px solid rgba(255, 255, 255, 0.28);
+
+    backdrop-filter: blur(8px);
+
+    -webkit-backdrop-filter: blur(8px);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: #ffffff;
+
+    cursor: pointer;
+
+    text-decoration: none;
+
+    padding: 0;
+
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+
+    z-index: 5;
+
+}
+
+.header-icon-btn:hover {
+
+    background: rgba(255, 255, 255, 0.25);
+
+    border-color: rgba(255, 255, 255, 0.6);
+
+    transform: translateY(-2px) scale(1.06);
+
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+
+}
+
+.header-icon-btn:active {
+
+    transform: translateY(0) scale(0.95);
+
+}
+
+/* Left green square: GitHub Cat & link */
+.header-inner .github-link {
+
+    left: 20%;
+
+    transform: translateX(-50%);
+
+}
+
+.header-inner .github-link:hover {
+
+    transform: translateX(-50%) translateY(-2px) scale(1.06);
+
+}
+
+.header-inner .github-link:active {
+
+    transform: translateX(-50%) translateY(0) scale(0.95);
+
+}
+
+.github-cat-icon {
+
+    width: 21px;
+
+    height: 21px;
+
+    fill: #ffffff;
+
+    transition: transform 0.2s ease;
+
+}
+
+.header-inner .github-link:hover .github-cat-icon {
+
+    transform: rotate(5deg) scale(1.08);
+
+}
+
+/* Right green square: Dark / Light mode toggle */
+.header-inner .theme-toggle {
+
+    right: 20%;
+
+    transform: translateX(50%);
+
+    font-size: 19px;
+
+    line-height: 1;
+
+}
+
+.header-inner .theme-toggle:hover {
+
+    transform: translateX(50%) translateY(-2px) scale(1.06);
+
+}
+
+.header-inner .theme-toggle:active {
+
+    transform: translateX(50%) translateY(0) scale(0.95);
+
+}
+
+@media (max-width: 480px) {
+
+    .header-inner {
+
+        width: 330px;
+
+    }
+
+    .header-icon-btn {
+
+        width: 34px;
+
+        height: 34px;
+
+        top: 10%;
+
+        border-radius: 9px;
+
+    }
+
+    .github-cat-icon {
+
+        width: 17px;
+
+        height: 17px;
+
+    }
+
+    .header-inner .theme-toggle {
+
+        font-size: 15px;
+
+    }
 
 }
 
