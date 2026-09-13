@@ -93,7 +93,7 @@ header {
 
     align-items: center;
 
-    position: relative;
+    position: static;
 
     padding: 0.85em 1em;
 
@@ -115,6 +115,8 @@ header {
 
     display: inline-flex;
 
+    flex-direction: column;
+
     justify-content: center;
 
     align-items: center;
@@ -122,6 +124,37 @@ header {
     width: 440px;
 
     max-width: 96vw;
+
+}
+
+/* The exact horizontal straight line containing BOTH buttons */
+.header-controls-row {
+
+    position: absolute;
+
+    top: 20px;
+
+    left: 0;
+
+    right: 0;
+
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: row;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 0 46px;
+
+    box-sizing: border-box;
+
+    pointer-events: none;
+
+    z-index: 10;
 
 }
 
@@ -141,25 +174,23 @@ header {
 
 .header-icon-btn {
 
-    position: absolute;
+    pointer-events: auto;
 
-    top: 14%;
+    width: 38px;
 
-    width: 40px;
+    height: 38px;
 
-    height: 40px;
-
-    border-radius: 12px;
+    border-radius: 11px;
 
     background: rgba(255, 255, 255, 0.12);
 
-    border: 1px solid rgba(255, 255, 255, 0.28);
+    border: 1.5px solid rgba(255, 255, 255, 0.35);
 
     backdrop-filter: blur(8px);
 
     -webkit-backdrop-filter: blur(8px);
 
-    display: flex;
+    display: inline-flex;
 
     align-items: center;
 
@@ -173,11 +204,17 @@ header {
 
     padding: 0;
 
+    margin: 0;
+
+    line-height: 1;
+
     transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
 
-    z-index: 5;
+    box-sizing: border-box;
+
+    flex-shrink: 0;
 
 }
 
@@ -185,7 +222,7 @@ header {
 
     background: rgba(255, 255, 255, 0.25);
 
-    border-color: rgba(255, 255, 255, 0.6);
+    border-color: rgba(255, 255, 255, 0.7);
 
     transform: translateY(-2px) scale(1.06);
 
@@ -199,67 +236,35 @@ header {
 
 }
 
-/* Left green square: GitHub Cat & link */
-.header-inner .github-link {
-
-    left: 20%;
-
-    transform: translateX(-50%);
-
-}
-
-.header-inner .github-link:hover {
-
-    transform: translateX(-50%) translateY(-2px) scale(1.06);
-
-}
-
-.header-inner .github-link:active {
-
-    transform: translateX(-50%) translateY(0) scale(0.95);
-
-}
-
 .github-cat-icon {
 
-    width: 21px;
+    width: 20px;
 
-    height: 21px;
+    height: 20px;
 
     fill: #ffffff;
 
     transition: transform 0.2s ease;
 
-}
-
-.header-inner .github-link:hover .github-cat-icon {
-
-    transform: rotate(5deg) scale(1.08);
+    display: block;
 
 }
 
-/* Right green square: Dark / Light mode toggle */
-.header-inner .theme-toggle {
+.header-icon-btn.github-link:hover .github-cat-icon {
 
-    right: 20%;
-
-    transform: translateX(50%);
-
-    font-size: 19px;
-
-    line-height: 1;
+    transform: rotate(6deg) scale(1.1);
 
 }
 
-.header-inner .theme-toggle:hover {
+.header-icon-btn.theme-toggle {
 
-    transform: translateX(50%) translateY(-2px) scale(1.06);
+    font-size: 18px;
 
-}
+    display: inline-flex;
 
-.header-inner .theme-toggle:active {
+    align-items: center;
 
-    transform: translateX(50%) translateY(0) scale(0.95);
+    justify-content: center;
 
 }
 
@@ -271,33 +276,40 @@ header {
 
     }
 
+    .header-controls-row {
+
+        top: 14px;
+
+        padding: 0 28px;
+
+    }
+
     .header-icon-btn {
 
-        width: 34px;
+        width: 32px;
 
-        height: 34px;
+        height: 32px;
 
-        top: 10%;
-
-        border-radius: 9px;
+        border-radius: 8px;
 
     }
 
     .github-cat-icon {
 
-        width: 17px;
+        width: 16px;
 
-        height: 17px;
+        height: 16px;
 
     }
 
-    .header-inner .theme-toggle {
+    .header-icon-btn.theme-toggle {
 
         font-size: 15px;
 
     }
 
 }
+
 
 main {
 
